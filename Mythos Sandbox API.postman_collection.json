@@ -1,0 +1,405 @@
+{
+  "info": {
+    "_postman_id": "7b8445cf-c2fa-4068-ae2e-0d0a48e15bbb",
+    "name": "Mythos Sandbox API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16181232",
+    "_collection_link": "https://go.postman.co/collection/16181232-7b8445cf-c2fa-4068-ae2e-0d0a48e15bbb?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "200: Register",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "*/*"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"afina_888\",\n  \"password\": \"secure_pass\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Mythos_Sandbox}}/register",
+              "host": [
+                "{{Mythos_Sandbox}}"
+              ],
+              "path": [
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "200: Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "accept",
+                "value": "application/json"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"fff\",\n  \"password\": \"12345\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://api.qasandbox.ru/api/login",
+              "protocol": "https",
+              "host": [
+                "api",
+                "qasandbox",
+                "ru"
+              ],
+              "path": [
+                "api",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "200: All pers",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"hercules_777\",\r\n  \"password\": \"secure_pass\"\r\n}"
+        },
+        "url": {
+          "raw": "{{Mythos_Sandbox}}/mythology",
+          "host": [
+            "{{Mythos_Sandbox}}"
+          ],
+          "path": [
+            "mythology"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "200: Pers by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{Mythos_Sandbox}}/mythology/389",
+          "host": [
+            "{{Mythos_Sandbox}}"
+          ],
+          "path": [
+            "mythology",
+            "389"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "201: CreateNewMythology",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Nefestotel\",\r\n  \"category\": \"gods\",\r\n  \"desc\": \"I don't know who is this\",\r\n  \"img\": \"https://example.com/hades.jpg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Mythos_Sandbox}}/mythology",
+          "host": [
+            "{{Mythos_Sandbox}}"
+          ],
+          "path": [
+            "mythology"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "200: FullUpdate by ID",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Nefestotellll\",\r\n  \"category\": \"myth\",\r\n  \"desc\": \"Владыка подземного мира\",\r\n  \"img\": \"https://examplee.com/hades.jpg\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{Mythos_Sandbox}}/mythology/389",
+          "host": [
+            "{{Mythos_Sandbox}}"
+          ],
+          "path": [
+            "mythology",
+            "389"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "500: Half Update",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"name\": \"Olympus\",\r\n}"
+        },
+        "url": {
+          "raw": "{{Mythos_Sandbox}}/mythology/90",
+          "host": [
+            "{{Mythos_Sandbox}}"
+          ],
+          "path": [
+            "mythology",
+            "90"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "403: Half Update",
+      "request": {
+        "method": "PATCH",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"desc\": \"Новая легенда об этом герое\"\r\n}"
+        },
+        "url": {
+          "raw": "{{Mythos_Sandbox}}/mythology/2",
+          "host": [
+            "{{Mythos_Sandbox}}"
+          ],
+          "path": [
+            "mythology",
+            "2"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "404: Delete pers",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{Mythos_Sandbox}}//mythology/1",
+          "host": [
+            "{{Mythos_Sandbox}}"
+          ],
+          "path": [
+            "",
+            "mythology",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "204: Delete pers( Use cURL)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "*/*"
+          },
+          {
+            "key": "Accept-Language",
+            "value": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZmZiIsImlhdCI6MTc3NDc3OTAyOSwiZXhwIjoxNzc1MzgzODI5fQ.dkmCTDm03HnG4JqilY_CwHXK-lRKwc6O3f2Ytx4rEDY"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Origin",
+            "value": "https://api.qasandbox.ru"
+          },
+          {
+            "key": "Pragma",
+            "value": "no-cache"
+          },
+          {
+            "key": "Referer",
+            "value": "https://api.qasandbox.ru/"
+          },
+          {
+            "key": "Sec-Fetch-Dest",
+            "value": "empty"
+          },
+          {
+            "key": "Sec-Fetch-Mode",
+            "value": "cors"
+          },
+          {
+            "key": "Sec-Fetch-Site",
+            "value": "same-origin"
+          },
+          {
+            "key": "User-Agent",
+            "value": "Mozilla/5.0 (Linux; Android 13; Pixel 7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Mobile Safari/537.36"
+          },
+          {
+            "key": "sec-ch-ua",
+            "value": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Google Chrome\";v=\"146\""
+          },
+          {
+            "key": "sec-ch-ua-mobile",
+            "value": "?1"
+          },
+          {
+            "key": "sec-ch-ua-platform",
+            "value": "\"Android\""
+          }
+        ],
+        "url": {
+          "raw": "https://api.qasandbox.ru/api/mythology/394",
+          "protocol": "https",
+          "host": [
+            "api",
+            "qasandbox",
+            "ru"
+          ],
+          "path": [
+            "api",
+            "mythology",
+            "394"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImZmZiIsImlhdCI6MTc3NDc3OTI3NSwiZXhwIjoxNzc1Mzg0MDc1fQ.YofxgHMi2xv_MxER_gLHggx1FznwrqBD-Oo1KAxXswQ",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "Mythos_Sandbox",
+      "value": ""
+    }
+  ]
+}
